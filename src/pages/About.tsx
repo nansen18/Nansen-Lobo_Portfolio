@@ -39,7 +39,7 @@ const About = () => {
               <ul className="space-y-2 text-muted-foreground text-sm">
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Second-year BE in Computer Science and Engineering
+                  Second-year BE in Computer Science and Engineering, Easwari Engineering College
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
