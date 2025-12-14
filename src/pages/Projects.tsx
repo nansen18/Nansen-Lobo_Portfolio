@@ -9,6 +9,7 @@ const projects = [
     description:
       "AI-powered mental health support application with intelligent chat, peer support, and mood tracking. Built to make mental health support more accessible and stigma-free.",
     tech: ["AI Integration", "Full Stack", "Health Tech"],
+    url: "https://mindmate-glow-journey.vercel.app/",
   },
   {
     name: "BazAIr",
@@ -16,6 +17,7 @@ const projects = [
     description:
       "AI-driven platform to support food vendors with demand prediction and inventory management. Focuses on reducing waste and improving planning using intelligent analytics.",
     tech: ["AI Analytics", "Data-driven", "Business Tool"],
+    url: "https://bazair-7z74bg6i6-nansens-projects.vercel.app/",
   },
   {
     name: "FreshTrack+",
@@ -23,6 +25,7 @@ const projects = [
     description:
       "Smart food expiry and nutrition tracker that helps users manage their pantry, reduce food waste, and maintain healthier eating habits through intelligent reminders.",
     tech: ["Mobile-first", "Health Tech", "User-focused"],
+    url: "https://fresh-track-alpha.vercel.app/",
   },
 ];
 
@@ -40,9 +43,12 @@ const Projects = () => {
           
           <div className="grid gap-6">
             {projects.map((project, index) => (
-              <article 
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 key={project.name} 
-                className="project-card group slide-up"
+                className="project-card group slide-up block"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start justify-between mb-3">
@@ -70,7 +76,7 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-              </article>
+              </a>
             ))}
           </div>
         </div>

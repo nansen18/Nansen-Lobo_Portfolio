@@ -5,19 +5,19 @@ import PageHeader from "@/components/PageHeader";
 const contactLinks = [
   {
     label: "GitHub",
-    href: "https://github.com",
+    href: "https://github.com/nansen18",
     icon: Github,
     description: "Check out my code",
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/nansen-lobo-j-a3282830a",
     icon: Linkedin,
     description: "Let's connect professionally",
   },
   {
     label: "Email",
-    href: "mailto:hello@example.com",
+    href: "mailto:nansenlobo80@gmail.com",
     icon: Mail,
     description: "Drop me a message",
   },
