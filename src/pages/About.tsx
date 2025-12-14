@@ -37,12 +37,9 @@ const About = () => {
             <div className="pt-6 border-t border-border/50 mt-8">
               <h3 className="text-sm font-medium text-foreground mb-3">Quick Facts</h3>
               <ul className="space-y-2 text-muted-foreground text-sm">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5" />
-                  <div>
-                    <span>Second-year BE in Computer Science and Engineering</span>
-                    <span className="block text-xs text-muted-foreground/70">Easwari Engineering College</span>
-                  </div>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Second-year BE in Computer Science and Engineering
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
