@@ -12,10 +12,16 @@ const navItems = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 hero-gradient" />
+      <div className="hero-orb hero-orb-1" />
+      <div className="hero-orb hero-orb-2" />
+      <div className="hero-orb hero-orb-3" />
+      
       <Navigation />
       
-      <main className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
+      <main className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative z-10">
         <div className="max-w-3xl w-full text-center fade-in">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6">
             Nansen Lobo J
