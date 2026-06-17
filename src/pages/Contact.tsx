@@ -40,8 +40,7 @@ const Contact = () => {
               <a
                 key={link.label}
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className="social-link group slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
