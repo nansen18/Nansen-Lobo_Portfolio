@@ -1,67 +1,93 @@
-import { Trophy } from "lucide-react";
+import { motion } from "framer-motion";
+import { Award, Trophy, GraduationCap, Brain, BarChart3 } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import PageHeader from "@/components/PageHeader";
 
-const achievements = [
+const timeline = [
   {
-    title: "Winner – Codein Clash",
-    context: "National Level Hackathon",
-    description: "Built MindMate, an AI-powered mental health support app that impressed judges with its practical approach to making mental health resources more accessible.",
-    highlight: true,
+    year: "2025",
+    icon: Trophy,
+    title: "Winner — Codein Clash",
+    tag: "National Hackathon",
+    description: "Built MindMate, an AI-powered mental health support app, and took home the top prize.",
   },
   {
-    title: "Runner-Up – KONE Elevate",
-    context: "National Level Hackathon",
-    description: "Built SafeStep Lift, an innovative AI-powered elevator door safety system using sensor fusion and real-time alerts to prevent accidents.",
-    highlight: false,
+    year: "2025",
+    icon: Award,
+    title: "Runner-Up — KONE Elevate",
+    tag: "National Hackathon",
+    description: "Built SafeStep Lift, an AI-powered elevator door safety system using sensor fusion.",
+  },
+  {
+    year: "2024",
+    icon: Brain,
+    title: "Career Essentials in Generative AI",
+    tag: "Microsoft & LinkedIn",
+    description: "Foundations of generative AI, responsible use, and integration into modern apps.",
+  },
+  {
+    year: "2024",
+    icon: GraduationCap,
+    title: "Cisco Networking Certifications",
+    tag: "Cisco Networking Academy",
+    description: "Networking fundamentals, infrastructure, and cybersecurity essentials.",
+  },
+  {
+    year: "2024",
+    icon: BarChart3,
+    title: "Power BI for Beginners",
+    tag: "Data & Analytics",
+    description: "Building interactive dashboards and data stories with Power BI.",
   },
 ];
 
 const Achievements = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative">
+      <AnimatedBackground />
       <Navigation />
-      
+
       <main className="page-container">
         <div className="section-container">
-          <PageHeader 
-            title="Highlights" 
-            subtitle="Recognition for work that matters"
+          <PageHeader
+            eyebrow="Highlights"
+            title="Achievements & certifications"
+            subtitle="Recognition, learning milestones, and moments worth marking."
           />
-          
-          <div className="space-y-6 max-w-2xl">
-            {achievements.map((achievement, index) => (
-              <div
-                key={achievement.title}
-                className={`p-6 rounded-xl border transition-all duration-300 slide-up ${
-                  achievement.highlight 
-                    ? "bg-accent/30 border-primary/30" 
-                    : "bg-card border-border/50 hover:border-primary/30"
-                }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+
+          <div className="relative pl-8 md:pl-12 max-w-3xl">
+            <div className="absolute left-2 top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent" />
+
+            {timeline.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="relative mb-8"
               >
-                <div className="flex items-start gap-4">
-                  <div className={`p-2 rounded-lg ${
-                    achievement.highlight ? "bg-primary/20" : "bg-secondary"
-                  }`}>
-                    <Trophy className={`w-5 h-5 ${
-                      achievement.highlight ? "text-primary" : "text-muted-foreground"
-                    }`} />
-                  </div>
-                  
-                  <div className="flex-1">
-                    <h3 className="text-lg font-medium text-foreground mb-1">
-                      {achievement.title}
-                    </h3>
-                    <p className="text-sm text-primary/70 mb-3">
-                      {achievement.context}
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {achievement.description}
-                    </p>
+                <span className="timeline-dot top-3" style={{ left: "-1.6rem" }} />
+                <div className="glass glass-hover rounded-2xl p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl grid place-items-center shrink-0"
+                         style={{ background: "var(--gradient-primary)" }}>
+                      <item.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex flex-wrap items-center gap-2 mb-1">
+                        <h3 className="text-lg font-semibold">{item.title}</h3>
+                        <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
+                          {item.year}
+                        </span>
+                      </div>
+                      <p className="text-sm text-primary/80 mb-2">{item.tag}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

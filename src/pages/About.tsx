@@ -1,57 +1,68 @@
+import { motion } from "framer-motion";
+import { GraduationCap, Sparkles, Trophy, Code2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import PageHeader from "@/components/PageHeader";
+import { fadeUp, stagger } from "@/lib/motion";
+
+const facts = [
+  { icon: GraduationCap, label: "Education", value: "BE Computer Science Engineering" },
+  { icon: Sparkles, label: "College", value: "Easwari Engineering College" },
+  { icon: Code2, label: "Focus", value: "Frontend · Full-Stack · AI" },
+  { icon: Trophy, label: "Hackathons", value: "Winner · Runner-up" },
+];
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative">
+      <AnimatedBackground />
       <Navigation />
-      
+
       <main className="page-container">
         <div className="section-container">
-          <PageHeader 
-            title="About Me" 
-            subtitle="A bit about who I am and what drives me"
-          />
-          
-          <div className="space-y-6 max-w-2xl slide-up" style={{ animationDelay: '0.1s' }}>
-            <p className="text-foreground/90 leading-relaxed text-lg">
-              I'm a second-year Computer Science student with a genuine passion for 
-              building things that matter. My focus lies in full-stack development 
-              and AI-powered applications that solve real-world problems.
-            </p>
-            
-            <p className="text-muted-foreground leading-relaxed">
-              Hackathons have been instrumental in shaping my problem-solving approach. 
-              They've taught me to think on my feet, collaborate effectively, and deliver 
-              under pressure. Each competition is an opportunity to push my boundaries 
-              and learn something new.
-            </p>
-            
-            <p className="text-muted-foreground leading-relaxed">
-              I believe in continuous learning and improvement. Whether it's exploring 
-              a new framework, diving into AI concepts, or refining my code, I'm always 
-              looking for ways to grow as a developer. The journey matters as much as 
-              the destination.
-            </p>
+          <PageHeader eyebrow="About me" title="A builder, learner, and quiet optimist." />
 
-            <div className="pt-6 border-t border-border/50 mt-8">
-              <h3 className="text-sm font-medium text-foreground mb-3">Quick Facts</h3>
-              <ul className="space-y-2 text-muted-foreground text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Second-year BE in Computer Science and Engineering, Easwari Engineering College
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Active hackathon participant
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Passionate about AI and full-stack development
-                </li>
-              </ul>
-            </div>
-          </div>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            animate="show"
+            className="grid lg:grid-cols-5 gap-8 items-start"
+          >
+            <motion.div variants={fadeUp} className="lg:col-span-3 space-y-5 text-lg leading-relaxed text-foreground/85">
+              <p>
+                I'm <span className="gradient-text font-semibold">Nansen Lobo J</span>, a Computer
+                Science Engineering student at Easwari Engineering College — someone who fell in
+                love with software the moment I realized a few lines of code could solve a real
+                person's problem.
+              </p>
+              <p className="text-muted-foreground">
+                My world today sits at the intersection of <span className="text-foreground">frontend craft</span> and{" "}
+                <span className="text-foreground">applied AI</span>. I obsess over fluid interfaces,
+                accessible interactions, and stitching modern AI APIs into products that actually
+                help — whether it's mental health, food waste, or guiding Gen-Z through tough
+                decisions.
+              </p>
+              <p className="text-muted-foreground">
+                Hackathons sharpened me. Shipping under pressure, debugging at 3 AM with teammates,
+                presenting to judges — it taught me to design fast, simplify ruthlessly, and ship
+                things people can hold. I'm still early in my journey, but I show up curious every
+                day, build in public, and treat every project as a chance to level up.
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="lg:col-span-2 grid sm:grid-cols-2 gap-4">
+              {facts.map((f) => (
+                <div key={f.label} className="glass glass-hover rounded-2xl p-5">
+                  <div className="w-10 h-10 rounded-xl grid place-items-center mb-3"
+                       style={{ background: "var(--gradient-primary)" }}>
+                    <f.icon className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">{f.label}</div>
+                  <div className="text-sm font-medium text-foreground">{f.value}</div>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </main>
     </div>
